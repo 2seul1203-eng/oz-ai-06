@@ -136,7 +136,7 @@ Git 저장소를 호스팅하는 서비스. 계정 생성 후 새 Repository를 
 - `git push`: 로컬 커밋을 원격 저장소로 올림. `git push -u origin main`
 - `git pull`: 원격 변경 사항을 내려받아 로컬에 반영.
 
-## 협업 실습
+## 실습
 
 ### Clone vs Fork
 - Clone: 원격 저장소를 그대로 내 로컬로 복사. 같은 저장소에 push 권한이 있을 때 사용. 팀 내부 협업에 주로 사용.
