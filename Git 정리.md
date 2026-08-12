@@ -51,15 +51,7 @@ Git은 버전 관리 엔진, GitHub는 협업과 공유를 위한 서비스.
 - Staging Area: 다음 커밋에 포함할 변경 사항을 미리 모아두는 공간.
 - 흐름: working directory → (`git add`) → staging area → (`git commit`) → repository
 
-## Git 설치와 초기 설정
-
-### 설치
-- macOS: `brew install git`
-- Windows: Git for Windows 설치
-- 설치 확인: `git --version`
-
-### GitHub 회원가입
-github.com 접속 후 name, email로 가입.
+## Git 초기 설정
 
 ### git config
 Git의 기본 동작을 설정하는 명령어.
@@ -128,7 +120,7 @@ Staging Area에 있는 변경 사항을 하나의 버전으로 기록. `git comm
 
 Git은 자동 병합을 시도하고, 판단이 필요한 경우만 충돌로 알려줌.
 
-## GitHub 기초
+## GitHub
 
 ### GitHub 계정과 저장소 생성
 Git 저장소를 호스팅하는 서비스. 계정 생성 후 새 Repository를 만들면 원격 저장소 주소(URL) 발급.
