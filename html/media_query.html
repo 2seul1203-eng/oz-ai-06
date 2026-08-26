@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+        }
+        .box {
+            background-color: orange;
+            border: 1px solid black;
+            flex: 1;
+        }
+        /* 화면의 너비가 300px 보다 작을 때 */
+        @media (max-width: 300px) {
+            .container {
+                flex-direction: column;
+            }
+            .box {
+                background-color: lightblue;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">내 블로그</div>
+        <div class="box">자기소개서</div>
+        <div class="box">이력서</div>
+        <div class="box">사진첩</div>
+    </div>
+</body>
+</html>

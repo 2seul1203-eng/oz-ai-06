@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>클릭</button>
+
+    <script>
+        const button = document.querySelector("button");
+
+        function clickButton() {
+            alert("클릭됨!")
+        }
+        // 버튼에 이벤트리스너를 추가
+        // (실행 조건) 버튼이 클릭되면, clickButton 실행
+        button.addEventListener("click", clickButton);
+
+    </script>
+</body>
+</html>

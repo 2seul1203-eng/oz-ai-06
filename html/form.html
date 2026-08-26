@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- form = 데이터 수집 -->
+     <!-- GET -->
+    <form action="https://www.google.com/search" method="GET">
+        <!-- input 태그 입력한 데이터를 q라고 부르겠다-->
+        <input type="search" name="q" placeholder="검색어를 입력하세요">
+        <button class="submit-button">입력</button>
+    </form>
+
+    <hr>
+    <!-- POST -->
+    <form action="https://jsonplaceholder.typicode.com/posts" method="POST">
+        <label for="email-input">이메일</label>
+        <input id="email-input" type="email" placeholder="alex@gmail.com" name="email">
+        <button class="submit-button">전송</button>
+    </form>
+</body>
+</html>

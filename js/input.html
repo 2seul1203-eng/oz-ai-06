@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 입력값 처리 -->
+     <input type ="text" placeholder="이름 입력">
+    <button>확인</button>
+    <div id="name"></div>
+
+    <script>
+        const input = document.querySelector("input")
+        const button = document.querySelector("button")
+        const name = document.querySelector("#name")
+
+        function submit() {
+            // eerly-return 패턴
+            // (활용) 값, 
+            if (input.value == "") {
+                alert("이름을 입력하세요.")
+                return
+            }
+
+
+            // 기존에 있던 이름 지우기
+            name.innerHTML = ""
+
+            // HTML 태그 생성 <h3></h3>
+            const h3 = document.createElement("h3")
+
+            // input 태그에 입력된 값을 꺼내서, h3 태그에 넣어줌
+            h3.textContent = input.value
+            input.value = ""
+
+            // body 태그의 자식 요소로 추가
+            document.body.appendChild(h3)
+        }
+        
+        // 버튼이 클릭되면, submit() 호출
+        button.addEventListener("click", submit)
+    </script>
+</body>
+</html>

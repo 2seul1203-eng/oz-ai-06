@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">마우스를 올려보세요.</div>
+
+
+    <script>
+        const box = document.querySelector("#box")
+
+        function changeTextColor(color) {
+            box.style.color = color
+        }
+
+        // 텍스트 색상 변경 함수
+        box.addEventListener(
+            "mouseover", () => changeTextColor("orange")
+        )
+
+        box.addEventListener(
+            "mouseout", () => bchangeTextColor("black")
+        )
+
+        // 텍스트에 마우스를 올렸을 때 highlightText() 호출
+        box.addEventListener("mouseover", highlightText)
+        box.addEventListener("mouseout", dehighlightText)
+    </script>
+</body>
+</html>

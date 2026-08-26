@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            border: 2px dotted black;
+            background-color: orange;
+
+            display: grid;
+            grid-template-columns: 1fr 2fr 2fr;
+            grid-template-rows: 100px 80px;
+        }
+        .item {
+            background-color: skyblue;
+            border: 1px solid black;
+        }
+        .a {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="item a">A</div>
+    <div class="item">B</div>
+    <div class="item">C</div>
+    <div class="item">D</div>
+    <div class="item">E</div>
+    <div class="item">F</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="이름입력">
+    <button>저장</button>
+    <div id="display"></div>
+
+    <script>
+        const input = document.querySelector("input")
+        const button = document.querySelector("button")
+        const display = document.querySelector("#display")
+
+        // 스토리지에 저장된 이름을 가져옴
+        const savedName = localStorage.getItem("name")
+        if(savedName) {
+            const welcomeText = "환영합니다, " + savedName + "님"
+            display.textContent = welcomeText
+        }
+        
+        // 이름을 입력하고 버튼을 클릭하면
+        button.addEventListener("click", () => {
+            // 화면에 이름 출력
+            display.textContent = input.value
+            // 스토리지에 이름 저장
+            localStorage.setItem("name", input.value)
+            // input을 비움
+            input.value = ""
+        })
+    </script>
+</body>
+</html>

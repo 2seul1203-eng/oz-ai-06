@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>카운트다운 시작</button>
+    <div id="display"></div>
+
+    <script>
+        const button = document.querySelector("button")
+        const display = document.querySelector("#display")
+        
+        let seconds = 10
+
+        // 10초를 세는 카운트다운 함수
+        function countDown() {
+            display.textContent = seconds
+            button.disabled = true
+            
+            const timerId = setInterval(
+                () => {
+                    seconds--
+                    display.textContent = seconds
+
+                    if (seconds == 0){
+                        clearInterval(timerId)
+
+                        seconds = 10
+                    }
+                },
+                1000
+            )
+        }
+
+        button.addEventListener("click", countDown)
+    </script>
+</body>
+</html>
