@@ -2,3 +2,5 @@
 docker-mission/worker/models/*.gguf
 **/__pycache__/
 docker/worker/models/*.gguf
+fastapi/__pycache__/
+fastapi/models/*.gguf
