@@ -1,3 +1,4 @@
 .env
 docker-mission/worker/models/*.gguf
 **/__pycache__/
+docker/worker/models/*.gguf
