@@ -8,7 +8,7 @@ services:
     depends_on:
       - db
       - redis
-  db:
+  db: 
     image: mysql:8.0
     environment:
       MYSQL_ROOT_PASSWORD: password
@@ -23,5 +23,6 @@ services:
     volumes:
       - ./worker:/app
 
+# docker compose가 local_db라는 이름의 폴더(볼륨) 자동 생성
 volumes:
   local_db:

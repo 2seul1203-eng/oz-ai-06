@@ -2,10 +2,11 @@ import json
 from llama_cpp import Llama
 from redis import Redis
 
+
 redis_client = Redis.from_url(
     "redis://redis:6379",
     decode_responses=True,
-    socket_timeout=None,
+    socket_timeout=None,  # Timeout 발생 방지
 )
 
 llm = Llama(
@@ -26,26 +27,29 @@ SYSTEM_PROMPT = (
 def run():
     # worker가 계속 동작
     while True:
-        # 1) Queue에서 작업 꺼내기
-        task = redis_client.brpop("task_queue")
+        # 1) Queue에서 작업을 꺼내기(작업이 있을 때까지 기다림)
+        _, task = redis_client.brpop("task_queue")
         task_dict = json.loads(task)  # JSON -> Python
 
         channel_id = task_dict["channel_id"]
         user_prompt = task_dict["user_prompt"]
 
-        # 2)
+        # 2) 추론
         response = llm.create_chat_completion(
             messages=[
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": user_prompt},
             ],
             max_tokens=256,
-            temperature=0.7
+            temperature=0.7,
+            stream=True,  # 토큰 단위로 결과를 받음
         )
-        answer = response["choices"][0]["message"]["content"]
+        for chunk in response:
+            token = chunk["choices"][0]["delta"].get("content")
+            if token:
+                redis_client.publish(channel_id, token)
 
-        # 3) 결과를 알려줌(Publish)
-        redis_client.publish(channel_id, answer)
+        redis_client.publish(channel_id, "[DONE]") # 토큰 전송
 
 # 이 파일을 직접 실행한 경우에만, run() 실행
 if __name__ == "__main__":
